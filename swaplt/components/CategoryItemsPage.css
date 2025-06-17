@@ -1,0 +1,201 @@
+/* CategoryItemsPage.css */
+
+.category-items-container {
+  padding: 15px;
+  max-width: 1200px; /* Limit overall width for better readability */
+  margin: 0 auto; /* Center the container */
+  font-family: Arial, sans-serif;
+  background-color: #f0f2f5; /* Light grey background */
+  min-height: 100vh; /* Ensure container takes full viewport height */
+}
+
+.category-items-header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+  background-color: #ffffff;
+  padding: 10px 15px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.back-button {
+  background: none;
+  border: none;
+  font-size: 24px;
+  cursor: pointer;
+  color: #333;
+  margin-right: 10px;
+  display: flex; /* To center the icon */
+  align-items: center;
+  justify-content: center;
+  padding: 5px;
+  border-radius: 50%;
+  transition: background-color 0.3s ease;
+}
+
+.back-button:hover {
+  background-color: #e0e0e0;
+}
+
+.category-items-header h2 {
+  flex-grow: 1; /* Allow the title to take available space */
+  font-size: 22px;
+  color: #333;
+  margin: 0;
+  text-align: center; /* Center the title */
+}
+
+---
+
+.items-list {
+  /* Use Flexbox to stack items vertically */
+  display: flex;
+  flex-direction: column; /* This is the key property for vertical display */
+  gap: 20px; /* Space between each item card */
+
+  /* Optional: Adjust for responsiveness if needed */
+  /* Remove any horizontal scrolling properties if they were present */
+  overflow-x: hidden; /* Ensure no horizontal scrollbar appears */
+}
+
+.item-card {
+  background-color: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  overflow: hidden; /* Ensures image corners are rounded */
+  display: flex; /* Make the item card itself a flex container */
+  flex-direction: row; /* Arrange image and text side-by-side initially */
+  align-items: flex-start; /* Align items to the top */
+  padding: 15px;
+  transition: transform 0.2s ease-in-out; /* Smooth hover effect */
+}
+
+.item-card:hover {
+  transform: translateY(-3px); /* Slightly lift card on hover */
+}
+
+.item-image-single {
+  flex-shrink: 0; /* Prevent image from shrinking */
+  width: 150px; /* Fixed width for the image container */
+  height: 112.5px; /* Maintain 4:3 aspect ratio (150 * 3 / 4) */
+  margin-right: 15px; /* Space between image and text content */
+  border-radius: 4px;
+  overflow: hidden; /* Hide overflow if image doesn't fit perfectly */
+}
+
+.item-image-single img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Crop image to fit without distortion */
+  display: block; /* Remove extra space below image */
+}
+
+.item-card-content {
+  flex-grow: 1; /* Allow content to take remaining space */
+  display: flex;
+  flex-direction: column;
+}
+
+.item-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start; /* Align text to top */
+  margin-bottom: 5px;
+}
+
+.item-card-header h3 {
+  font-size: 18px;
+  color: #333;
+  margin: 0;
+  line-height: 1.3;
+}
+
+.item-card-header h3 span {
+  /* Hide time as per your JS comments (matches screenshot) */
+  display: none;
+}
+
+.item-details,
+.item-location,
+.item-distance {
+  font-size: 14px;
+  color: #555;
+  margin-bottom: 3px;
+  line-height: 1.4;
+}
+
+.detail-label {
+  font-weight: bold;
+  color: #333;
+  margin-right: 5px;
+}
+
+.item-location {
+  margin-top: 10px; /* Add some space above location */
+  font-weight: 500;
+  color: #666;
+}
+
+/* Hide description and stats as per your JS comments (matches screenshot) */
+.item-description,
+.item-stats {
+  display: none;
+}
+
+.no-items-message {
+  text-align: center;
+  color: #777;
+  font-size: 18px;
+  padding: 30px;
+  background-color: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+/* --- Responsive Adjustments --- */
+@media (max-width: 600px) {
+  .item-card {
+    flex-direction: column; /* Stack image and text vertically on small screens */
+    align-items: center; /* Center content when stacked */
+    text-align: center; /* Center text for stacked layout */
+  }
+
+  .item-image-single {
+    width: 100%; /* Full width image on small screens */
+    height: 180px; /* Adjust height for better visibility */
+    margin-right: 0; /* Remove right margin */
+    margin-bottom: 15px; /* Add bottom margin for spacing */
+  }
+
+  .item-card-content {
+    align-items: center; /* Center text content when stacked */
+  }
+
+  .item-card-header {
+    flex-direction: column; /* Stack name and time if time was visible */
+    align-items: center; /* Center header content */
+    margin-bottom: 10px;
+  }
+
+  .item-card-header h3 {
+    text-align: center;
+    font-size: 16px;
+  }
+}
+
+@media (max-width: 400px) {
+  .category-items-header h2 {
+    font-size: 20px;
+  }
+
+  .item-image-single {
+    height: 150px; /* Smaller image height for very small screens */
+  }
+
+  .item-details,
+  .item-location,
+  .item-distance {
+    font-size: 13px;
+  }
+}

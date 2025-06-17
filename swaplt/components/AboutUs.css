@@ -1,0 +1,372 @@
+/* src/components/AboutUs.css */
+
+/* --- Global Styles & Variables (Consider moving to a shared CSS file if you have one) --- */
+:root {
+    --primary-color: #00a86b; /* Green */
+    --primary-light: #e6f7f0; /* Light green for headers/backgrounds */
+    --text-color-dark: #333;
+    --text-color-medium: #555;
+    --text-color-light: #777;
+    --background-light: #f9f9f9; /* General light background */
+    --card-background: #fff;
+    --border-color: #eee;
+    --shadow-light: rgba(0,0,0,0.05);
+    --shadow-medium: rgba(0,0,0,0.07);
+    --transition-speed: 0.3s ease;
+}
+
+body {
+    margin: 0; /* Ensure no default margin from body */
+    font-family: 'Roboto', sans-serif; /* A more modern, readable sans-serif font */
+    line-height: 1.6;
+    color: var(--text-color-dark);
+    background-color: var(--background-light);
+}
+
+/* --- About Us Container --- */
+.about-us-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    box-sizing: border-box; /* Include padding in element's total width/height */
+}
+
+/* --- Header Section --- */
+.about-us-header {
+    text-align: center;
+    padding: 80px 20px; /* Increased padding for more prominence */
+    background-color: var(--primary-light);
+    border-radius: 12px; /* Slightly more rounded */
+    margin-bottom: 60px; /* More space below header */
+    box-shadow: 0 5px 15px var(--shadow-light); /* Subtle shadow for depth */
+}
+
+.about-us-header h1 {
+    font-size: 3.5em; /* Slightly larger */
+    color: var(--primary-color);
+    margin-bottom: 15px;
+    font-weight: 700; /* Bolder */
+}
+
+.about-us-header p {
+    font-size: 1.3em; /* Slightly larger */
+    color: var(--text-color-medium);
+    max-width: 800px;
+    margin: 0 auto; /* Center paragraph */
+}
+
+/* --- General Section Styling --- */
+section {
+    padding: 50px 30px; /* Increased padding */
+    margin-bottom: 60px; /* Consistent spacing between sections */
+    background-color: var(--card-background);
+    border-radius: 12px; /* Consistent border radius */
+    box-shadow: 0 4px 15px var(--shadow-medium); /* More prominent shadow */
+    overflow: hidden; /* Clear floats, if any */
+}
+
+section h2 {
+    text-align: center;
+    font-size: 2.8em; /* Slightly larger */
+    color: var(--text-color-dark);
+    margin-bottom: 40px;
+    font-weight: 600; /* Semi-bold */
+    position: relative; /* For underline effect */
+    padding-bottom: 10px;
+}
+
+/* Underline effect for H2 */
+section h2::after {
+    content: '';
+    position: absolute;
+    left: 50%;
+    bottom: 0;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 4px;
+    background-color: var(--primary-color);
+    border-radius: 2px;
+}
+
+
+/* --- Mission Section --- */
+.about-us-mission p {
+    font-size: 1.15em; /* Slightly larger for emphasis */
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto;
+    color: var(--text-color-medium);
+}
+
+/* --- Values Grid Section --- */
+.values-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 40px; /* Increased gap for better separation */
+    text-align: center;
+}
+
+.value-item {
+    padding: 30px; /* Increased padding */
+    border: 1px solid var(--border-color);
+    border-radius: 10px; /* Slightly more rounded than section */
+    box-shadow: 0 3px 12px var(--shadow-light); /* More noticeable shadow */
+    transition: transform var(--transition-speed), box-shadow var(--transition-speed); /* Add shadow transition */
+    background-color: var(--card-background);
+}
+
+.value-item:hover {
+    transform: translateY(-8px); /* More pronounced lift */
+    box-shadow: 0 8px 25px rgba(0,0,0,0.1); /* Stronger shadow on hover */
+}
+
+.value-item h3 {
+    color: var(--primary-color);
+    font-size: 1.8em; /* Larger and bolder */
+    margin-bottom: 15px;
+    font-weight: 600;
+}
+
+.value-item p {
+    color: var(--text-color-light);
+    font-size: 1em; /* Standard readable size */
+}
+
+/* --- Team Members Section --- */
+.team-members {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 50px; /* Increased gap */
+}
+
+.team-member-card {
+    text-align: center;
+    max-width: 280px; /* Slightly wider cards */
+    padding: 30px; /* Increased padding */
+    border-radius: 12px;
+    box-shadow: 0 5px 20px var(--shadow-medium); /* More distinct shadow */
+    background-color: var(--card-background);
+    transition: transform var(--transition-speed), box-shadow var(--transition-speed);
+}
+
+.team-member-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.15); /* Stronger hover effect */
+}
+
+.team-member-card img {
+    width: 160px; /* Slightly larger image */
+    height: 160px; /* Maintain aspect ratio */
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 20px;
+    border: 5px solid var(--primary-color); /* Slightly thicker border */
+    box-shadow: 0 0 0 5px rgba(0,168,107,0.2); /* A subtle glow/ring around the border */
+    transition: border-color var(--transition-speed);
+}
+
+.team-member-card img:hover {
+    border-color: #008a5a; /* Darker green on hover */
+}
+
+.team-member-card h3 {
+    color: var(--text-color-dark);
+    font-size: 1.6em; /* Slightly larger */
+    margin-bottom: 8px;
+    font-weight: 600;
+}
+
+.team-member-card p:nth-of-type(1) { /* Job Title */
+    color: var(--primary-color);
+    font-weight: bold;
+    margin-bottom: 15px;
+    font-size: 1.1em;
+}
+
+.team-member-card p:nth-of-type(2) { /* Description */
+    color: var(--text-color-light);
+    font-size: 0.95em;
+}
+
+/* --- Contact Section --- */
+.about-us-contact {
+    text-align: center;
+    padding-bottom: 80px; /* More bottom padding */
+}
+
+.about-us-contact p {
+    font-size: 1.15em;
+    color: var(--text-color-medium);
+    margin-bottom: 30px;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.contact-btn {
+    display: inline-block;
+    background-color: var(--primary-color);
+    color: white;
+    padding: 14px 30px; /* Larger button */
+    border-radius: 8px; /* More rounded button */
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 1.1em;
+    transition: background-color var(--transition-speed), transform 0.2s ease;
+    border: none; /* Remove default button border */
+    cursor: pointer;
+}
+
+.contact-btn:hover {
+    background-color: #008a5a; /* Darker green on hover */
+    transform: translateY(-2px); /* Slight lift on hover */
+}
+
+
+/* ========================================= */
+/* --- Responsive Adjustments (@media queries) --- */
+/* ========================================= */
+
+/* Small Mobile Devices (e.g., iPhone SE - 320px to 480px) */
+@media (max-width: 480px) {
+    .about-us-container {
+        padding: 15px;
+    }
+
+    .about-us-header {
+        padding: 60px 15px;
+        margin-bottom: 40px;
+    }
+
+    .about-us-header h1 {
+        font-size: 2.2em;
+    }
+
+    .about-us-header p {
+        font-size: 1em;
+    }
+
+    section {
+        padding: 30px 15px;
+        margin-bottom: 40px;
+    }
+
+    section h2 {
+        font-size: 1.8em;
+        margin-bottom: 30px;
+    }
+
+    section h2::after {
+        width: 60px;
+        height: 3px;
+    }
+
+    .about-us-mission p {
+        font-size: 1em;
+    }
+
+    .values-grid {
+        gap: 20px;
+    }
+
+    .value-item {
+        padding: 20px;
+    }
+
+    .value-item h3 {
+        font-size: 1.4em;
+    }
+
+    .team-members {
+        gap: 30px;
+    }
+
+    .team-member-card {
+        max-width: 220px; /* Slightly smaller for very small screens */
+        padding: 20px;
+    }
+
+    .team-member-card img {
+        width: 120px;
+        height: 120px;
+    }
+
+    .team-member-card h3 {
+        font-size: 1.3em;
+    }
+
+    .team-member-card p:nth-of-type(1) {
+        font-size: 0.9em;
+    }
+
+    .contact-btn {
+        padding: 10px 20px;
+        font-size: 1em;
+    }
+}
+
+/* Tablets and larger phones (e.g., 481px to 768px) */
+@media (min-width: 481px) and (max-width: 768px) {
+    .about-us-container {
+        padding: 25px;
+    }
+
+    .about-us-header {
+        padding: 70px 25px;
+        margin-bottom: 50px;
+    }
+
+    .about-us-header h1 {
+        font-size: 3em;
+    }
+
+    .about-us-header p {
+        font-size: 1.1em;
+    }
+
+    section {
+        padding: 40px 25px;
+        margin-bottom: 50px;
+    }
+
+    section h2 {
+        font-size: 2.2em;
+    }
+
+    .values-grid {
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Allow two columns on tablets */
+        gap: 30px;
+    }
+
+    .team-members {
+        gap: 40px;
+    }
+}
+
+/* Medium Desktops (e.g., 769px to 1024px) */
+@media (min-width: 769px) and (max-width: 1024px) {
+    .about-us-container {
+        padding: 30px;
+    }
+
+    .about-us-header h1 {
+        font-size: 3.2em;
+    }
+
+    section h2 {
+        font-size: 2.5em;
+    }
+
+    .values-grid {
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Maintain 3 columns if space allows */
+    }
+}
+
+/* Large Desktops (e.g., 1025px and up) */
+/* The base styles already handle large desktops well, but minor adjustments can be made */
+@media (min-width: 1025px) {
+    .about-us-container {
+        padding: 40px;
+    }
+}

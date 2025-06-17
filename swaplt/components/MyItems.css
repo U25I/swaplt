@@ -1,0 +1,460 @@
+/* General Resets & Variables */
+:root {
+    --primary-green: #4CAF50;
+    --primary-dark-green: #45a049;
+    --text-dark: #333;
+    --text-medium: #666;
+    --text-light: #888;
+    --bg-light: #f0f2f5;
+    --bg-white: #fff;
+    --border-light: #eee;
+    --shadow-light: rgba(0,0,0,0.1);
+    --shadow-medium: rgba(0,0,0,0.2);
+    --shadow-dark: rgba(0,0,0,0.3);
+    --border-radius-card: 10px;
+    --border-radius-button: 8px; /* Slightly less rounded than 25px for rectangular buttons */
+    --spacing-xs: 0.5rem;   /* 8px */
+    --spacing-sm: 1rem;     /* 16px */
+    --spacing-md: 1.25rem;  /* 20px */
+    --spacing-lg: 1.5rem;   /* 24px */
+    --spacing-xl: 2rem;     /* 32px */
+    --nav-bar-height: 3.5rem; /* ~56px for bottom nav */
+}
+
+/* Basic body and html styling for full height app */
+html, body, #root {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    font-family: 'Roboto', sans-serif; /* A more professional font */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    background-color: var(--bg-light);
+}
+
+/* Main Container */
+.my-items-container {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    background-color: var(--bg-light);
+    color: var(--text-dark);
+}
+
+/* Top Navigation Bar - Title inside the box, aligned buttons */
+.top-nav-bar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: var(--spacing-sm) var(--spacing-md);
+    background-color: var(--primary-green);
+    color: var(--bg-white);
+    box-shadow: 0 2px 5px var(--shadow-light);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    margin-bottom: 0; /* ENSURE NO SPACE BELOW */
+}
+
+.top-nav-bar .back-button {
+    background: none;
+    border: none;
+    font-size: 1.5rem; /* 24px */
+    color: var(--bg-white);
+    cursor: pointer;
+    padding: var(--spacing-xs);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.top-nav-bar .page-title {
+    font-size: 1.15rem; /* Slightly smaller for mobile header */
+    font-weight: 600;
+    margin: 0;
+    flex-grow: 1;
+    text-align: center;
+    color: var(--bg-white);
+}
+
+.top-nav-bar .nav-right-spacer {
+    width: 1.5rem;
+    height: 1.5rem;
+}
+
+
+/* Tab Navigation */
+.my-items-tabs {
+    display: flex;
+    justify-content: space-around;
+    background-color: var(--bg-white);
+    border-bottom: 1px solid var(--border-light);
+    box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+    margin-top: 0; /* ENSURE NO SPACE ABOVE */
+}
+
+.my-items-tabs .tab-button {
+    flex: 1;
+    padding: var(--spacing-md) 0;
+    text-align: center;
+    border: none;
+    background: none;
+    font-size: 0.95rem;
+    font-weight: 500;
+    color: var(--text-medium);
+    cursor: pointer;
+    position: relative;
+    transition: color 0.3s ease;
+}
+
+.my-items-tabs .tab-button:hover:not(.active) {
+    color: var(--text-dark);
+}
+
+.my-items-tabs .tab-button.active {
+    color: var(--primary-green);
+    font-weight: 600;
+}
+
+.my-items-tabs .tab-button.active::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 25%;
+    width: 50%;
+    height: 3px;
+    background-color: var(--primary-green);
+    border-radius: 2px 2px 0 0;
+    transition: all 0.3s ease;
+}
+
+/* Content Area */
+.my-items-content {
+    flex-grow: 1;
+    padding: var(--spacing-md);
+    overflow-y: auto;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start; /* Align content to the top */
+    padding-bottom: calc(var(--nav-bar-height) + var(--spacing-xl)); /* Add padding for FAB */
+    /* This padding ensures content doesn't get hidden behind the bottom nav/FAB */
+}
+
+/* No Items State */
+.no-items-state {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    max-width: 320px;
+    margin-top: var(--spacing-xl);
+    background-color: var(--bg-white);
+    padding: var(--spacing-lg);
+    border-radius: var(--border-radius-card);
+    box-shadow: 0 4px 15px var(--shadow-light);
+}
+
+.no-items-illustration {
+    width: 120px;
+    height: 120px;
+    margin-bottom: var(--spacing-lg);
+}
+
+.no-items-folder-icon {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    opacity: 0.7;
+}
+
+.no-items-message-title {
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: var(--text-dark);
+    margin-bottom: var(--spacing-sm);
+}
+
+.no-items-message-description {
+    font-size: 0.9rem;
+    color: var(--text-medium);
+    line-height: 1.6;
+    margin-bottom: var(--spacing-xl);
+}
+
+.add-item-button {
+    background-color: var(--primary-green);
+    color: var(--bg-white);
+    padding: 10px var(--spacing-xl);
+    border: none;
+    border-radius: var(--border-radius-button); /* Using common button radius */
+    font-size: 1rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-xs);
+    box-shadow: 0 4px 10px var(--shadow-medium);
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.add-item-button:hover {
+    background-color: var(--primary-dark-green);
+    transform: translateY(-2px);
+}
+
+.add-item-icon {
+    font-size: 1.1rem;
+}
+
+/* Proposed Items Placeholder */
+.proposed-items-placeholder {
+    text-align: center;
+    padding: var(--spacing-xl);
+    color: var(--text-medium);
+    font-size: 1rem;
+    background-color: var(--bg-white);
+    border-radius: var(--border-radius-card);
+    box-shadow: 0 2px 8px var(--shadow-light);
+    margin-top: var(--spacing-md);
+    width: 100%;
+    max-width: 500px;
+}
+
+/* Existing Item List Styles (improved) */
+.items-list {
+    width: 100%;
+    display: grid;
+    gap: var(--spacing-md);
+    grid-template-columns: 1fr;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.item-card {
+    background-color: var(--bg-white);
+    border-radius: var(--border-radius-card);
+    box-shadow: 0 2px 8px var(--shadow-light);
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.item-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 15px var(--shadow-medium);
+}
+
+.item-images {
+    flex-shrink: 0;
+    width: 100%;
+    height: 180px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #f5f5f5;
+    overflow: hidden;
+}
+
+.item-thumbnail {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: var(--border-radius-card) var(--border-radius-card) 0 0;
+}
+
+.no-image-placeholder {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #e0e0e0;
+    color: #999;
+    font-size: 0.85rem;
+    border-radius: var(--border-radius-card) var(--border-radius-card) 0 0;
+}
+
+.item-details {
+    padding: var(--spacing-sm) var(--spacing-md);
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.item-details h3 {
+    margin: 0 0 var(--spacing-xs) 0;
+    font-size: 1.1rem;
+    color: var(--text-dark);
+}
+
+.item-details p {
+    font-size: 0.85rem;
+    color: var(--text-medium);
+    margin: 0 0 0.25rem 0;
+}
+
+.item-description {
+    font-size: 0.8rem;
+    color: var(--text-light);
+    margin-top: var(--spacing-xs);
+    line-height: 1.5;
+    flex-grow: 1;
+}
+
+.item-actions {
+    display: flex;
+    gap: var(--spacing-sm);
+    margin-top: var(--spacing-sm);
+    justify-content: flex-end;
+}
+
+.edit-button, .delete-button {
+    padding: 8px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 0.85rem;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.edit-button {
+    background-color: #007bff;
+    color: var(--bg-white);
+}
+
+.edit-button:hover {
+    background-color: #0056b3;
+    transform: translateY(-1px);
+}
+
+.delete-button {
+    background-color: #dc3545;
+    color: var(--bg-white);
+}
+
+.delete-button:hover {
+    background-color: #c82333;
+    transform: translateY(-1px);
+}
+
+/* Bottom Navigation Bar - Aligned and professional */
+.bottom-nav-bar {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background-color: var(--bg-white);
+    padding: 0.5rem 0;
+    border-top: 1px solid var(--border-light);
+    box-shadow: 0 -2px 5px var(--shadow-light);
+    position: relative; /* Changed to relative for FAB absolute positioning */
+    bottom: 0;
+    width: 100%;
+    z-index: 999; /* Lower than top bar, higher than content */
+    height: var(--nav-bar-height); /* Fixed height for consistent look */
+}
+
+.bottom-nav-bar .nav-item {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: 0.75rem;
+    color: var(--text-light);
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0.5rem;
+    transition: color 0.3s ease;
+    height: 100%; /* Ensure button takes full height of nav bar */
+    justify-content: center; /* Vertically center content */
+}
+
+.bottom-nav-bar .nav-item svg {
+    font-size: 1.25rem;
+    margin-bottom: 0.25rem;
+}
+
+.bottom-nav-bar .nav-item-text {
+    font-size: 0.75rem;
+}
+
+.bottom-nav-bar .nav-item.active {
+    color: var(--primary-green);
+    font-weight: 600;
+}
+
+.bottom-nav-bar .nav-item:hover:not(.fab-button) {
+    color: var(--text-dark);
+}
+
+/* FAB Button Specific Styling */
+.bottom-nav-bar .fab-button {
+    position: absolute; /* Absolute positioning relative to .bottom-nav-bar */
+    top: -2.25rem; /* Lift it further up - adjust as needed */
+    left: 50%;
+    transform: translateX(-50%); /* Center horizontally */
+    background-color: var(--primary-green);
+    color: var(--bg-white);
+    width: 5.5rem; /* Wider oval shape */
+    height: 3.5rem; /* Consistent height */
+    border-radius: var(--border-radius-button); /* Match other buttons, or make more oval */
+    /* To make it oval like in the screenshot, use a larger border-radius or an ellipse shape */
+    border-radius: 50px; /* Adjust for more oval shape if needed */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.8rem; /* Larger plus icon */
+    box-shadow: 0 6px 15px var(--shadow-dark); /* More pronounced shadow */
+    border: 4px solid var(--bg-light); /* Border to match background */
+    transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+    z-index: 1001; /* Ensure it's above everything else */
+}
+
+.bottom-nav-bar .fab-button:hover {
+    background-color: var(--primary-dark-green);
+    transform: translateX(-50%) translateY(-2.5rem); /* Lift slightly higher on hover */
+    box-shadow: 0 8px 20px var(--shadow-dark);
+}
+
+.bottom-nav-bar .fab-button svg {
+    margin-bottom: 0;
+}
+
+/* Responsive Adjustments */
+@media (min-width: 768px) {
+    .top-nav-bar .page-title {
+        font-size: 1.3rem;
+    }
+
+    .item-card {
+        flex-direction: row;
+    }
+
+    .item-images {
+        width: 180px;
+        height: auto;
+        border-radius: var(--border-radius-card) 0 0 var(--border-radius-card);
+    }
+
+    .item-thumbnail, .no-image-placeholder {
+        border-radius: var(--border-radius-card) 0 0 var(--border-radius-card);
+    }
+
+    .item-details {
+        padding: var(--spacing-md);
+    }
+
+    .items-list {
+        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+        gap: var(--spacing-lg);
+    }
+}
+
+/* Optional: For larger desktop screens, if you want a wider container */
+@media (min-width: 1024px) {
+    .my-items-container {
+        max-width: 1200px;
+        margin: 0 auto;
+        box-shadow: 0 0 20px rgba(0,0,0,0.1);
+    }
+}

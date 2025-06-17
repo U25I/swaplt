@@ -1,0 +1,375 @@
+/* Overall Page Container */
+.profile-container {
+    background-color: #e6f7ed; /* Light green-white background based on screenshot */
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    font-family: Arial, sans-serif;
+    color: #333;
+    padding-bottom: 70px; /* Space for the bottom navigation bar */
+    box-sizing: border-box;
+}
+
+/* Header Section (Back button and Profile Title) */
+.profile-header {
+    display: flex;
+    align-items: center;
+    padding: 15px 20px;
+    background-color: #ffffff; /* White header background */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    position: sticky; /* Keeps header visible on scroll */
+    top: 0;
+    z-index: 100;
+}
+
+.profile-header h2 {
+    flex-grow: 1; /* Pushes title to center */
+    text-align: center;
+    font-size: 20px; /* Font size from screenshot */
+    color: #333;
+    margin: 0;
+    font-weight: 600;
+    transform: translateX(-15px); /* Counteract back-button space for true center */
+}
+
+.back-button {
+    background: none;
+    border: none;
+    font-size: 24px; /* Icon size from screenshot */
+    cursor: pointer;
+    color: #555;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    transition: color 0.2s ease-in-out;
+}
+
+.back-button:hover {
+    color: #007bff;
+}
+
+/* Main Content Area */
+.profile-main-content {
+    flex-grow: 1; /* Takes up available space */
+    padding: 20px;
+    padding-top: 30px; /* Added back top padding for profile header section */
+    overflow-y: auto; /* Allows content to scroll if it overflows */
+}
+
+/* Reinstated Profile Picture and Name/Email Section */
+.profile-header-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 30px; /* Space below this section */
+}
+
+.profile-pic-wrapper {
+    position: relative;
+    width: 140px; /* Size of the profile circle */
+    height: 140px; /* Size of the profile circle */
+    border-radius: 50%;
+    background-color: #ff5722; /* Orange color */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.profile-pic-placeholder {
+    font-size: 72px; /* Size of the 'R' */
+    color: #fff; /* White 'R' */
+    font-weight: bold;
+}
+
+.camera-icon-overlay {
+    position: absolute;
+    bottom: 0;
+    right: 5px; /* Position relative to the circle */
+    background-color: #4CAF50; /* Green camera icon background */
+    border-radius: 50%;
+    width: 40px; /* Size of the camera icon circle */
+    height: 40px; /* Size of the camera icon circle */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    font-size: 20px; /* Size of the camera icon */
+    border: 2px solid #fff; /* White border for the camera icon */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.profile-name {
+    font-size: 22px; /* Name font size */
+    font-weight: 600;
+    margin-bottom: 5px;
+    color: #333;
+}
+
+.profile-email {
+    font-size: 15px; /* Email font size */
+    color: #666;
+    margin-bottom: 0;
+}
+
+
+/* Profile Menu List */
+.profile-menu {
+    background-color: #ffffff;
+    border-radius: 12px; /* Slightly rounded corners for the entire menu block */
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+    overflow: hidden; /* Ensures borders/dividers don't spill */
+    padding: 5px 0; /* Slight vertical padding for the overall menu block */
+}
+
+.menu-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 15px 20px; /* Padding for each item */
+    border-bottom: 1px solid #eee; /* Divider line */
+    cursor: pointer;
+    transition: background-color 0.2s ease-in-out;
+}
+
+.menu-item:last-child {
+    border-bottom: none; /* No divider on the last item */
+}
+
+.menu-item:hover {
+    background-color: #f9f9f9;
+}
+
+.menu-item-left {
+    display: flex;
+    align-items: center;
+}
+
+.menu-icon {
+    font-size: 22px; /* Icon size */
+    color: #4CAF50; /* Green icon color for default items */
+    margin-right: 15px; /* Space between icon and text */
+    width: 30px; /* Fixed width for consistent alignment */
+    text-align: center;
+}
+
+.menu-text {
+    font-size: 16px; /* Text size */
+    color: #333;
+    font-weight: 500;
+}
+
+.menu-arrow {
+    font-size: 20px; /* Arrow size */
+    color: #aaa; /* Lighter arrow color */
+    font-weight: bold;
+}
+
+/* Special styling for Logout item */
+.logout-item .menu-icon,
+.logout-item .menu-text {
+    color: #dc3545; /* Red color for logout icon and text */
+}
+
+.logout-item .menu-arrow {
+    color: #dc3545; /* Red color for logout arrow as well */
+}
+
+/* Floating Action Button (FAB) */
+.floating-action-button {
+    position: fixed;
+    bottom: 50px; /* Position above bottom nav bar */
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #4CAF50; /* Green color */
+    color: #fff;
+    width: 60px; /* Size of the FAB */
+    height: 60px; /* Size of the FAB */
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 30px; /* Size of the plus icon */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+    z-index: 10; /* Ensure it's above other content */
+    transition: transform 0.2s ease-in-out, background-color 0.2s ease-in-out;
+}
+
+.floating-action-button:hover {
+    transform: translateX(-50%) translateY(-3px); /* Slight lift on hover */
+    background-color: #388e3c; /* Darker green on hover */
+}
+
+/* Bottom Navigation Bar */
+.bottom-nav {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: #ffffff; /* White background */
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    height: 60px; /* Height of the nav bar */
+    box-shadow: 0 -2px 8px rgba(0, 0, 0, 0.1);
+    z-index: 5; /* Below FAB */
+}
+
+.nav-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    color: #888; /* Inactive text color */
+    font-size: 12px; /* Text font size */
+    font-weight: 500;
+    flex: 1; /* Distribute items evenly */
+    height: 100%;
+    transition: color 0.2s ease-in-out;
+}
+
+.nav-item svg {
+    font-size: 22px; /* Icon size */
+    margin-bottom: 3px;
+    color: #888; /* Inactive icon color */
+    transition: color 0.2s ease-in-out;
+}
+
+.nav-item.active {
+    color: #4CAF50; /* Active text color (green) */
+}
+
+.nav-item.active svg {
+    color: #4CAF50; /* Active icon color (green) */
+}
+
+/* Placeholder for the FAB in the bottom nav layout */
+.nav-item-placeholder {
+    width: 60px; /* Same width as FAB to create space */
+    height: 100%;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    .profile-header h2 {
+        font-size: 18px;
+    }
+    .back-button {
+        font-size: 22px;
+    }
+    /* Profile Header Section */
+    .profile-pic-wrapper {
+        width: 120px;
+        height: 120px;
+    }
+    .profile-pic-placeholder {
+        font-size: 60px;
+    }
+    .camera-icon-overlay {
+        width: 35px;
+        height: 35px;
+        font-size: 18px;
+        right: 0px;
+    }
+    .profile-name {
+        font-size: 20px;
+    }
+    .profile-email {
+        font-size: 14px;
+    }
+
+    .menu-icon {
+        font-size: 20px;
+    }
+    .menu-text {
+        font-size: 15px;
+    }
+    .floating-action-button {
+        width: 55px;
+        height: 55px;
+        font-size: 28px;
+        bottom: 50px;
+    }
+    .bottom-nav {
+        height: 55px;
+    }
+    .nav-item svg {
+        font-size: 20px;
+    }
+    .nav-item span {
+        font-size: 11px;
+    }
+}
+
+@media (max-width: 480px) {
+    .profile-container {
+        padding-bottom: 55px; /* Adjust for smaller nav bar */
+    }
+    .profile-header {
+        padding: 10px 15px;
+    }
+    .profile-header h2 {
+        font-size: 16px;
+        transform: translateX(-10px);
+    }
+    .back-button {
+        font-size: 20px;
+    }
+    .profile-main-content {
+        padding: 15px;
+        padding-top: 25px; /* Adjust for smaller screens */
+    }
+    /* Profile Header Section */
+    .profile-pic-wrapper {
+        width: 100px;
+        height: 100px;
+    }
+    .profile-pic-placeholder {
+        font-size: 50px;
+    }
+    .camera-icon-overlay {
+        width: 30px;
+        height: 30px;
+        font-size: 16px;
+        right: -2px;
+    }
+    .profile-name {
+        font-size: 18px;
+    }
+    .profile-email {
+        font-size: 13px;
+    }
+
+    .menu-item {
+        padding: 12px 15px;
+    }
+    .menu-icon {
+        font-size: 18px;
+        margin-right: 12px;
+    }
+    .menu-text {
+        font-size: 14px;
+    }
+    .menu-arrow {
+        font-size: 18px;
+    }
+    .floating-action-button {
+        width: 50px;
+        height: 50px;
+        font-size: 25px;
+        bottom: 45px; /* Adjust for smaller nav bar */
+    }
+    .bottom-nav {
+        height: 50px;
+    }
+    .nav-item svg {
+        font-size: 18px;
+    }
+    .nav-item span {
+        font-size: 10px;
+    }
+}

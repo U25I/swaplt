@@ -1,0 +1,336 @@
+/* Contact.css */
+
+/* --- Global Styles & Variables (Ensure these are consistent across your project or defined globally) --- */
+:root {
+    --primary-color: #00a86b; /* Green */
+    --primary-light: #e6f7f0; /* Light green for headers/backgrounds */
+    --text-color-dark: #333;
+    --text-color-medium: #555;
+    --text-color-light: #777;
+    --background-light: #f9f9f9; /* General light background */
+    --card-background: #fff;
+    --border-color: #ddd;
+    --shadow-light: rgba(0,0,0,0.05);
+    --shadow-medium: rgba(0,0,0,0.07);
+    --transition-speed: 0.3s ease;
+    --border-radius-base: 8px; /* Consistent border radius */
+}
+
+body {
+    /* If not already set globally in App.css or index.css */
+    font-family: 'Roboto', sans-serif; /* Recommended, ensure import if used */
+    line-height: 1.6;
+    color: var(--text-color-dark);
+    background-color: var(--background-light);
+}
+
+/* --- Contact Container --- */
+.contact-container {
+    max-width: 1000px; /* Slightly narrower than AboutUs for focus */
+    margin: 0 auto;
+    padding: 20px;
+    box-sizing: border-box; /* Include padding in element's total width/height */
+}
+
+/* --- Header Section --- */
+.contact-header {
+    text-align: center;
+    padding: 60px 20px; /* Kept similar to original but consistent with new variables */
+    background-color: var(--primary-light);
+    border-radius: var(--border-radius-base);
+    margin-bottom: 50px; /* Balanced spacing */
+    box-shadow: 0 5px 15px var(--shadow-light);
+}
+
+.contact-header h1 {
+    font-size: 3.2em; /* Slightly adjusted for consistency */
+    color: var(--primary-color);
+    margin-bottom: 10px;
+    font-weight: 700;
+}
+
+.contact-header p {
+    font-size: 1.2em;
+    color: var(--text-color-medium);
+    max-width: 700px; /* Constrain width for readability */
+    margin: 0 auto;
+}
+
+/* --- General Section Styling --- */
+.contact-form-section,
+.contact-info-section,
+.contact-map-section {
+    padding: 40px 30px; /* Balanced padding */
+    margin-bottom: 50px; /* Consistent spacing between sections */
+    background-color: var(--card-background);
+    border-radius: var(--border-radius-base);
+    box-shadow: 0 4px 15px var(--shadow-medium);
+    overflow: hidden;
+}
+
+/* Section Heading (similar to About Us) */
+.contact-form-section h2,
+.contact-info-section h2,
+.contact-map-section h2 {
+    text-align: center;
+    font-size: 2.5em; /* Adjusted for contact page scale */
+    color: var(--text-color-dark);
+    margin-bottom: 40px;
+    font-weight: 600;
+    position: relative;
+    padding-bottom: 10px;
+}
+
+.contact-form-section h2::after,
+.contact-info-section h2::after,
+.contact-map-section h2::after {
+    content: '';
+    position: absolute;
+    left: 50%;
+    bottom: 0;
+    transform: translateX(-50%);
+    width: 70px; /* Slightly narrower underline for compactness */
+    height: 4px;
+    background-color: var(--primary-color);
+    border-radius: 2px;
+}
+
+/* --- Contact Form --- */
+.contact-form {
+    max-width: 600px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 18px; /* Slightly reduced gap for compactness */
+}
+
+/* Removed `.form-group label` as labels are conceptually removed visually in the component,
+    relying on placeholders. If you re-add visual labels, put this back. */
+/* .form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+    color: var(--text-color-medium);
+} */
+
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: 14px; /* Slightly more padding for input comfort */
+    border: 1px solid var(--border-color);
+    border-radius: 5px;
+    font-size: 1em;
+    box-sizing: border-box;
+    transition: border-color var(--transition-speed), box-shadow var(--transition-speed);
+}
+
+.form-group input::placeholder,
+.form-group textarea::placeholder {
+    color: #999; /* Lighter placeholder text */
+    font-size: 0.95em;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    border-color: var(--primary-color);
+    outline: none;
+    box-shadow: 0 0 0 4px rgba(0,168,107,0.2); /* More prominent focus shadow */
+}
+
+/* Updated class name from .submit-btn to .send-message-button */
+.send-message-button { /* Corrected class name */
+    background-color: var(--primary-color);
+    color: white;
+    padding: 16px 30px; /* Larger, more inviting button */
+    border: none;
+    border-radius: 8px; /* More rounded button */
+    font-size: 1.15em; /* Slightly larger text */
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color var(--transition-speed), transform 0.2s ease;
+    align-self: center; /* Center the button in the column layout */
+    margin-top: 10px; /* Add some space above the button */
+}
+
+.send-message-button:hover { /* Corrected class name */
+    background-color: #008a5a;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+/* --- Contact Info Grid --- */
+.contact-info-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Adjusted minmax for better spacing */
+    gap: 30px;
+    text-align: center;
+}
+
+.info-item {
+    background-color: var(--card-background);
+    padding: 30px; /* More padding for content */
+    border-radius: var(--border-radius-base);
+    box-shadow: 0 3px 12px var(--shadow-light);
+    transition: transform var(--transition-speed), box-shadow var(--transition-speed);
+}
+
+.info-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+}
+
+.info-item h3 {
+    color: var(--primary-color);
+    font-size: 1.6em;
+    margin-bottom: 12px;
+}
+
+.info-item p {
+    color: var(--text-color-medium);
+    font-size: 1em;
+}
+
+/* Optional: Icon styling for info items if you add them in HTML */
+/* .info-item svg {
+    font-size: 2.5em;
+    color: var(--primary-color);
+    margin-bottom: 15px;
+} */
+
+
+/* --- Map Section --- */
+.contact-map-section {
+    text-align: center;
+    padding-bottom: 60px; /* More space at the bottom */
+}
+
+.map-placeholder {
+    background-color: #e0e0e0; /* Slightly darker placeholder for contrast */
+    height: 350px; /* Slightly taller for more visual impact */
+    border-radius: var(--border-radius-base);
+    overflow: hidden;
+    /* Removed text styling from placeholder as it's just a visual placeholder for map */
+    /* display: flex; */
+    /* justify-content: center; */
+    /* align-items: center; */
+    /* color: #555; */
+    /* font-style: italic; */
+    /* font-size: 1.2em; */
+}
+
+
+/* ========================================= */
+/* --- Responsive Adjustments (@media queries) --- */
+/* ========================================= */
+
+/* Small Mobile Devices (e.g., iPhone SE - 320px to 480px) */
+@media (max-width: 480px) {
+    .contact-container {
+        padding: 15px;
+    }
+
+    .contact-header {
+        padding: 50px 15px;
+        margin-bottom: 30px;
+    }
+
+    .contact-header h1 {
+        font-size: 2.3em;
+    }
+
+    .contact-header p {
+        font-size: 1.0em;
+    }
+
+    .contact-form-section,
+    .contact-info-section,
+    .contact-map-section {
+        padding: 30px 15px;
+        margin-bottom: 30px;
+    }
+
+    .contact-form-section h2,
+    .contact-info-section h2,
+    .contact-map-section h2 {
+        font-size: 2em;
+        margin-bottom: 25px;
+    }
+
+    .contact-form-section h2::after,
+    .contact-info-section h2::after,
+    .contact-map-section h2::after {
+        width: 50px;
+        height: 3px;
+    }
+
+    .form-group input,
+    .form-group textarea {
+        padding: 10px; /* Smaller padding for mobile inputs */
+        font-size: 0.9em;
+    }
+
+    .send-message-button { /* Corrected class name */
+        padding: 12px 25px;
+        font-size: 1em;
+    }
+
+    .contact-info-grid {
+        grid-template-columns: 1fr; /* Stack items vertically on small screens */
+        gap: 20px;
+    }
+
+    .info-item {
+        padding: 20px;
+    }
+
+    .info-item h3 {
+        font-size: 1.4em;
+    }
+
+    .map-placeholder {
+        height: 250px; /* Shorter map on small screens */
+    }
+}
+
+/* Tablets and larger phones (e.g., 481px to 768px) */
+@media (min-width: 481px) and (max-width: 768px) {
+    .contact-container {
+        padding: 25px;
+    }
+
+    .contact-header {
+        padding: 50px 25px;
+    }
+
+    .contact-header h1 {
+        font-size: 2.8em;
+    }
+
+    section h2 {
+        font-size: 2.2em;
+    }
+
+    .contact-info-grid {
+        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); /* Allow two columns */
+        gap: 25px;
+    }
+
+    .form-group input,
+    .form-group textarea {
+        padding: 12px;
+    }
+
+    .send-message-button { /* Corrected class name */
+        padding: 14px 28px;
+    }
+}
+
+/* Medium Desktops (e.g., 769px to 1024px) */
+@media (min-width: 769px) and (max-width: 1024px) {
+    .contact-container {
+        max-width: 900px; /* Slightly narrower to keep focus */
+    }
+}
+
+/* Large Desktops (1025px and up) - Base styles handle well */
+/* No specific overrides needed here as base styles are optimized for this range */

@@ -1,0 +1,146 @@
+/* src/components/AddCategory.css */
+
+.add-category-container {
+    padding: 20px;
+    max-width: 600px;
+    margin: 20px auto;
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    font-family: 'Arial', sans-serif;
+    color: #333;
+}
+
+.add-category-header {
+    display: flex;
+    align-items: center;
+    padding-bottom: 15px;
+    border-bottom: 1px solid #eee;
+    margin-bottom: 20px;
+}
+
+.add-category-header .back-button {
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+    color: var(--primary-color); /* Assuming a primary color variable */
+    margin-right: 15px;
+    padding: 5px;
+    border-radius: 50%;
+    transition: background-color 0.2s;
+}
+
+.add-category-header .back-button:hover {
+    background-color: #f0f0f0;
+}
+
+.add-category-header .arrow-icon {
+    vertical-align: middle;
+}
+
+.add-category-header h2 {
+    margin: 0;
+    font-size: 1.8rem;
+    color: #333;
+    flex-grow: 1; /* Pushes the spacer to the right */
+    text-align: center; /* Center the title */
+    transform: translateX(-25px); /* Adjust based on back button width to truly center */
+}
+
+.add-category-header .spacer {
+    width: 40px; /* Balance the back button width */
+}
+
+
+.add-category-form-main .form-group {
+    margin-bottom: 18px;
+}
+
+.add-category-form-main label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+    color: #555;
+}
+
+.add-category-form-main input[type="text"],
+.add-category-form-main textarea {
+    width: calc(100% - 20px); /* Account for padding */
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 1rem;
+    box-sizing: border-box; /* Include padding in width */
+    transition: border-color 0.3s ease;
+}
+
+.add-category-form-main input[type="text"]:focus,
+.add-category-form-main textarea:focus {
+    border-color: var(--primary-color); /* Highlight on focus */
+    outline: none;
+}
+
+.add-category-form-main textarea {
+    resize: vertical; /* Allow vertical resizing */
+    min-height: 80px;
+}
+
+.add-category-form-main .submit-button {
+    width: 100%;
+    padding: 12px 20px;
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease, opacity 0.3s ease;
+    margin-top: 20px;
+}
+
+.add-category-form-main .submit-button:hover:not(:disabled) {
+    background-color: var(--primary-light-color); /* A slightly darker shade for hover */
+    transform: translateY(-2px);
+}
+
+.add-category-form-main .submit-button:disabled {
+    background-color: #cccccc;
+    cursor: not-allowed;
+    opacity: 0.7;
+}
+
+/* Status Messages */
+.submission-status {
+    padding: 10px 15px;
+    border-radius: 5px;
+    margin-bottom: 15px;
+    font-size: 0.95rem;
+    text-align: center;
+}
+
+.submission-status.error {
+    background-color: #ffe0e0;
+    color: #cc0000;
+    border: 1px solid #cc0000;
+}
+
+.submission-status.success {
+    background-color: #e0ffe0;
+    color: #008000;
+    border: 1px solid #008000;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    .add-category-container {
+        margin: 10px;
+        padding: 15px;
+    }
+
+    .add-category-header h2 {
+        font-size: 1.5rem;
+        transform: translateX(0); /* Remove centering adjustment on smaller screens */
+        text-align: left; /* Align left with back button */
+    }
+}

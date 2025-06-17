@@ -1,0 +1,140 @@
+/* src/components/Signup.css */
+
+.signup-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: #f0f2f5;
+    font-family: Arial, sans-serif;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.signup-form-card {
+    background-color: #ffffff;
+    padding: 40px;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    max-width: 400px;
+    width: 100%;
+    text-align: center;
+}
+
+.signup-form-card h2 {
+    font-size: 1.8em;
+    color: #333333;
+    margin-bottom: 30px;
+    font-weight: bold;
+}
+
+.signup-form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px; /* Space between form groups (which now contain just inputs) */
+}
+
+.form-group {
+    /* text-align: left; /* No longer needed if no labels outside */
+    /* margin-bottom: 15px; /* This can stay if you want space between inputs */
+}
+
+/* Removed the following block as labels are no longer used outside inputs */
+/*
+.form-group label {
+    display: block;
+    font-size: 0.9em;
+    color: #555555;
+    margin-bottom: 8px;
+    font-weight: 600;
+}
+*/
+
+.form-group input {
+    width: 100%;
+    padding: 12px 15px;
+    border: 1px solid #dddddd;
+    border-radius: 5px;
+    font-size: 1em;
+    color: #333333;
+    box-sizing: border-box;
+    transition: border-color 0.3s ease;
+}
+
+.form-group input:focus {
+    border-color: #00a86b;
+    outline: none;
+}
+
+/* Style for the placeholder text */
+.form-group input::placeholder {
+    color: #aaaaaa; /* Lighter grey for placeholder text */
+    opacity: 1; /* Ensures placeholder is not transparent in Firefox */
+}
+
+
+.signup-btn {
+    width: 100%;
+    padding: 14px 20px;
+    background-color: #00a86b;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 1.1em;
+    font-weight: bold;
+    cursor: pointer;
+    margin-top: 20px;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.signup-btn:hover {
+    background-color: #008a5a;
+    transform: translateY(-2px);
+}
+
+.error-message {
+    color: #e74c3c;
+    font-size: 0.9em;
+    margin-bottom: 15px;
+}
+
+.login-prompt {
+    font-size: 0.9em;
+    color: #555555;
+    margin-top: 25px;
+}
+
+.login-prompt a {
+    color: #00a86b;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+.login-prompt a:hover {
+    color: #008a5a;
+    text-decoration: underline;
+}
+
+/* Responsive adjustments */
+@media (max-width: 600px) {
+    .signup-form-card {
+        padding: 30px 20px;
+        margin: 20px;
+    }
+
+    .signup-form-card h2 {
+        font-size: 1.6em;
+        margin-bottom: 25px;
+    }
+
+    .form-group input {
+        padding: 10px 12px;
+        font-size: 0.95em;
+    }
+
+    .signup-btn {
+        padding: 12px 15px;
+        font-size: 1em;
+    }
+}

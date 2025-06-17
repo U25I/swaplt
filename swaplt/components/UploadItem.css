@@ -1,0 +1,355 @@
+/* General Variables for consistency (can be shared with other CSS files) */
+:root {
+    --primary-green: #4CAF50;
+    --primary-dark-green: #45a049;
+    --text-dark: #333;
+    --text-medium: #666;
+    --text-light: #888;
+    --bg-light: #f0f2f5; /* Light gray background */
+    --bg-white: #fff;
+    --border-light: #eee;
+    --shadow-light: rgba(0,0,0,0.1);
+    --shadow-medium: rgba(0,0,0,0.2);
+    --border-radius-input: 8px; /* Consistent border-radius for inputs/selects */
+    --border-radius-button: 8px; /* Consistent border-radius for buttons */
+    --spacing-xs: 0.5rem;   /* 8px */
+    --spacing-sm: 1rem;     /* 16px */
+    --spacing-md: 1.25rem;  /* 20px */
+    --spacing-lg: 1.5rem;   /* 24px */
+    --spacing-xl: 2rem;     /* 32px */
+}
+
+/* Overall Container for the Upload Item Page */
+.upload-item-container {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    background-color: var(--bg-light);
+    font-family: 'Roboto', sans-serif;
+    color: var(--text-dark);
+}
+
+/* Header Styling */
+.upload-item-header {
+    display: flex;
+    align-items: center;
+    padding: var(--spacing-sm) var(--spacing-md); /* Consistent padding */
+    background-color: var(--bg-white);
+    box-shadow: 0 2px 5px var(--shadow-light);
+    /* Removed any margin-bottom to reduce space below header */
+}
+
+.upload-item-header .back-button {
+    background: none;
+    border: none;
+    font-size: 1.5rem; /* Larger icon size */
+    color: var(--primary-green); /* Green arrow */
+    cursor: pointer;
+    padding: 0.5rem; /* Ensure good click area */
+    display: flex; /* For centering the arrow icon */
+    align-items: center;
+    justify-content: center;
+    margin-right: var(--spacing-sm); /* Space between arrow and title */
+}
+
+.upload-item-header .back-button .arrow-icon {
+    /* Simple arrow icon using a border trick */
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    border-left: 2px solid var(--primary-green);
+    border-bottom: 2px solid var(--primary-green);
+    transform: rotate(45deg);
+}
+
+.upload-item-header h2 {
+    flex-grow: 1; /* Allows title to take available space */
+    text-align: center; /* Center the title */
+    font-size: 1.15rem; /* Slightly adjusted size */
+    font-weight: 600;
+    color: var(--text-dark);
+    margin: 0; /* Remove default margin */
+}
+
+/* Ensure a spacer on the right for perfect centering if needed, matching the back-button's width */
+.upload-item-header .spacer {
+    width: 2.5rem; /* Approximate width of back-button + margin */
+    visibility: hidden; /* Keep space but make it invisible */
+}
+
+/* Progress Indicator */
+.progress-indicator {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: var(--spacing-sm) var(--spacing-md); /* Reduced top/bottom padding */
+    background-color: var(--bg-white);
+    border-bottom: 1px solid var(--border-light);
+    /* Removed any margin-top/bottom to ensure minimal space */
+}
+
+.progress-indicator .step {
+    flex-grow: 1;
+    height: 5px; /* Thin progress bar */
+    background-color: #e0e0e0; /* Incomplete step color */
+    border-radius: 5px;
+    margin: 0 2px; /* Small gap between segments */
+}
+
+.progress-indicator .step:first-child {
+    margin-left: 0;
+}
+
+.progress-indicator .step:last-child {
+    margin-right: 0;
+}
+
+.progress-indicator .step.completed {
+    background-color: var(--primary-green); /* Completed step color */
+}
+
+/* Form Sections */
+.upload-item-form {
+    flex-grow: 1;
+    padding: var(--spacing-md); /* Padding around the entire form content */
+    background-color: var(--bg-light); /* Matches main background */
+}
+
+.form-section {
+    background-color: var(--bg-white);
+    padding: var(--spacing-lg);
+    border-radius: var(--border-radius-card); /* Using a larger border-radius for sections */
+    margin-bottom: var(--spacing-lg); /* Space between form sections */
+    box-shadow: 0 2px 8px var(--shadow-light); /* Subtle shadow for depth */
+}
+
+.form-section label {
+    display: block;
+    font-size: 0.95rem; /* Slightly smaller label font */
+    font-weight: 600;
+    color: var(--text-dark);
+    margin-bottom: var(--spacing-xs); /* Space below label */
+}
+
+.form-section input[type="text"],
+.form-section textarea,
+.form-section select {
+    width: calc(100% - 20px); /* Adjust for padding if needed, or use box-sizing: border-box */
+    padding: 10px;
+    border: 1px solid var(--border-light);
+    border-radius: var(--border-radius-input);
+    font-size: 1rem;
+    color: var(--text-dark);
+    background-color: var(--bg-white);
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.form-section input[type="text"]:focus,
+.form-section textarea:focus,
+.form-section select:focus {
+    border-color: var(--primary-green);
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(76, 175, 80, 0.2); /* Green focus halo */
+}
+
+.form-section textarea {
+    resize: vertical; /* Allow vertical resizing */
+    min-height: 80px; /* Minimum height for textareas */
+}
+
+/* Checkbox and Radio Groups */
+.checkbox-group, .radio-group {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-xs); /* Space between options */
+}
+
+.checkbox-group label, .radio-group label {
+    display: flex;
+    align-items: center;
+    font-weight: normal; /* Labels within groups don't need to be bold */
+    cursor: pointer;
+    margin-bottom: 0; /* Override default label margin */
+    color: var(--text-medium);
+}
+
+.checkbox-group input[type="checkbox"], .radio-group input[type="radio"] {
+    margin-right: var(--spacing-xs);
+    width: auto; /* Allow native checkbox/radio size */
+    transform: scale(1.1); /* Slightly larger for easier clicking */
+}
+
+
+/* Image Upload Section */
+.image-upload-section .image-count {
+    font-size: 0.85rem;
+    color: var(--text-medium);
+    margin-left: var(--spacing-xs);
+}
+
+.image-upload-box {
+    display: flex;
+    flex-wrap: wrap; /* Allows images to wrap to next line */
+    gap: var(--spacing-sm); /* Space between upload area and previews */
+    align-items: center;
+    border: 1px dashed var(--border-light); /* Dashed border for upload area */
+    border-radius: var(--border-radius-input);
+    padding: var(--spacing-sm);
+    min-height: 120px; /* Minimum height for the upload box */
+}
+
+.image-upload-box .upload-area {
+    width: 100px;
+    height: 100px;
+    border: 2px dashed #ccc;
+    border-radius: var(--border-radius-input);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    background-color: #f9f9f9;
+    transition: border-color 0.3s ease, background-color 0.3s ease;
+}
+
+.image-upload-box .upload-area:hover {
+    border-color: var(--primary-green);
+    background-color: #f0f8f0;
+}
+
+.image-upload-box .plus-icon {
+    font-size: 2.5rem;
+    color: var(--text-light);
+}
+
+.image-previews {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--spacing-xs);
+}
+
+.preview-image {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    border-radius: var(--border-radius-input);
+    border: 1px solid var(--border-light);
+}
+
+/* Review Section */
+.review-section h2 {
+    font-size: 1.2rem;
+    margin-bottom: var(--spacing-md);
+    color: var(--primary-green);
+    border-bottom: 2px solid var(--primary-green);
+    padding-bottom: var(--spacing-xs);
+}
+
+.review-item-detail {
+    display: flex;
+    justify-content: space-between;
+    padding: var(--spacing-xs) 0;
+    border-bottom: 1px dashed var(--border-light);
+    font-size: 0.95rem;
+    color: var(--text-medium);
+}
+
+.review-item-detail:last-child {
+    border-bottom: none;
+}
+
+.review-item-detail strong {
+    color: var(--text-dark);
+    flex-shrink: 0; /* Prevent strong tag from shrinking */
+    margin-right: var(--spacing-sm);
+}
+
+.review-previews {
+    margin-top: var(--spacing-sm);
+}
+
+/* Navigation Buttons (Back & Continue) */
+.form-navigation {
+    display: flex;
+    justify-content: center; /* Center the buttons group */
+    gap: var(--spacing-md); /* Space between the buttons */
+    padding: var(--spacing-lg) 0; /* Vertical padding around the buttons */
+    /* Removed padding-bottom from .upload-item-form and added it here */
+}
+
+.form-navigation .nav-button {
+    flex: 1; /* Makes buttons take equal width */
+    max-width: 180px; /* Max width for buttons for larger screens */
+    padding: 12px var(--spacing-md); /* Generous padding for good touch target */
+    border: none;
+    border-radius: var(--border-radius-button); /* Apply consistent border-radius */
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+    display: flex; /* For centering text within the button */
+    align-items: center;
+    justify-content: center;
+    text-align: center; /* Ensure text is centered */
+}
+
+.form-navigation .back-button-form { /* Renamed to avoid conflict if `back-button` exists elsewhere */
+    background-color: #e0e0e0; /* Light gray from screenshot */
+    color: var(--text-dark);
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.form-navigation .back-button-form:hover {
+    background-color: #d0d0d0;
+    transform: translateY(-1px);
+}
+
+.form-navigation .continue-button {
+    background-color: var(--primary-green); /* Green from screenshot */
+    color: var(--bg-white);
+    box-shadow: 0 4px 10px var(--shadow-medium);
+}
+
+.form-navigation .continue-button:hover {
+    background-color: var(--primary-dark-green);
+    transform: translateY(-1px);
+}
+
+/* Responsive Adjustments */
+@media (max-width: 480px) {
+    .upload-item-header h2 {
+        font-size: 1rem; /* Smaller title on very small screens */
+    }
+
+    .form-navigation {
+        flex-direction: column; /* Stack buttons vertically on small screens */
+        gap: var(--spacing-sm); /* Smaller gap when stacked */
+        padding: var(--spacing-md) var(--spacing-sm); /* Adjust padding */
+    }
+
+    .form-navigation .nav-button {
+        max-width: 100%; /* Take full width when stacked */
+    }
+}
+
+@media (min-width: 768px) {
+    .upload-item-container {
+        max-width: 600px; /* Constrain width for desktop for better readability */
+        margin: 2rem auto; /* Center on larger screens */
+        border-radius: var(--border-radius-card);
+        box-shadow: 0 0 20px rgba(0,0,0,0.1);
+    }
+
+    .upload-item-header {
+        border-top-left-radius: var(--border-radius-card);
+        border-top-right-radius: var(--border-radius-card);
+    }
+
+    .progress-indicator {
+        border-bottom-left-radius: var(--border-radius-card);
+        border-bottom-right-radius: var(--border-radius-card);
+    }
+
+    .upload-item-form {
+        padding: var(--spacing-xl);
+    }
+}

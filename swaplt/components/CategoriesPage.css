@@ -1,0 +1,75 @@
+.categories-page-container {
+  padding: 20px;
+  background-color: #f8f8f8; /* Light background */
+  min-height: 100vh;
+}
+
+.categories-page-header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.categories-page-header .back-button {
+  font-size: 24px;
+  color: #333;
+  text-decoration: none;
+  margin-right: 15px;
+}
+
+.categories-page-header h2 {
+  font-size: 22px;
+  font-weight: 600;
+  color: #333;
+  margin: 0;
+}
+
+.categories-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.category-item {
+  display: flex;
+  align-items: center;
+  background-color: #fff;
+  padding: 15px 20px;
+  border-radius: 10px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+  cursor: pointer;
+  transition: transform 0.2s ease-in-out;
+}
+
+.category-item:hover {
+  transform: translateY(-2px);
+}
+
+.category-icon {
+  font-size: 24px;
+  color: #4CAF50; /* Green color for icons */
+  margin-right: 15px;
+}
+
+.category-name {
+  flex-grow: 1;
+  font-size: 16px;
+  color: #555;
+  font-weight: 500;
+}
+
+.arrow-icon {
+  font-size: 20px;
+  color: #aaa;
+}
+/* Add this to your CategoriesPage.css */
+.category-item-link {
+  text-decoration: none; /* Remove underline from links */
+  color: inherit; /* Inherit text color from parent */
+}
+
+/* If you previously had hover/active states on .category-item,
+   you might need to ensure they still apply to the link or the div inside it. */
+.category-item-link:hover .category-item {
+  transform: translateY(-2px); /* Keep the hover effect on the card */
+}

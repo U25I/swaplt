@@ -1,0 +1,19 @@
+/* src/components/Home.css */
+.home-container {
+  max-width: 600px;
+  margin: 80px auto;
+  padding: 30px;
+  text-align: center;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+.home-container h1 {
+  color: #00a86b;
+}
+
+.home-container p {
+  font-size: 16px;
+  margin-top: 10px;
+}
